@@ -1,12 +1,11 @@
 import axios from "axios";
-const BASE_URL = "https://api-beta.melobit.com/v1/"
-
+const  baseURL = "https://api-beta.melobit.com/v1/";
 
 const getAxiosInstance = axios.create({
-    baseURL: BASE_URL,
+    baseURL: baseURL,
 });
 
 
 export{
     getAxiosInstance
-}
+};
