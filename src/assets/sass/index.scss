@@ -9,7 +9,7 @@ body,
 html {
     padding: 0;
     margin: 0;
-    overflow-x: hidden;
+    overflow: hidden;
 
 }
 
@@ -20,7 +20,8 @@ body {
     background: #280F2C !important;
     color: #fff;
 }
-*{
+
+* {
     font-family: Rubik;
 }
 
@@ -31,16 +32,16 @@ body {
     display: flex;
 
     .sidebar {
-        width: 5%;
+        width: 5em;
         height: 100vh;
-        padding: 3em 0.7em;
+        padding: 1em 0.7em;
         display: flex;
         flex-direction: column;
         align-items: center;
 
         &_logo {
             img {
-                width: 97%;
+                width: 98.8%;
                 cursor: pointer;
             }
         }
@@ -48,18 +49,19 @@ body {
         &_menu {
             margin-top: 3em;
 
-            &_item{
+            &_item {
                 margin: 2em 0;
                 padding: 0.6em 0.3em;
                 display: flex;
                 justify-content: center;
                 cursor: pointer;
-                img{
+
+                img {
                     width: 70%;
                     margin: 0 auto;
                 }
 
-                &:hover{
+                &:hover {
                     background: rgba(0, 0, 0, 0.6);
                     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
                     border-radius: 12px;
@@ -72,31 +74,36 @@ body {
         flex: 1;
         background: #000;
         border-radius: 50px 0px 0px 50px;
-        padding: 1.5rem;
-        .header{
+        padding: 1rem 1.5rem;
+        overflow-y: auto;
+        padding-bottom: 3.5rem;
+
+        .header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.5em 0;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
 
-            &_title{
+            &_title {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                h4{
+
+                h4 {
                     margin-bottom: unset;
                 }
-                img{
+
+                img {
                     width: 1.7em;
                     margin: 0 0.5em;
                 }
             }
 
-            .search{
+            .search {
                 width: 25em;
                 position: relative;
-                input{
+
+                input {
                     outline: unset;
                     border: 2px solid #FFFFFF;
                     border-radius: 15px;
@@ -107,7 +114,7 @@ body {
                     color: #fff;
                 }
 
-                img{
+                img {
                     width: 1.5em;
                     position: absolute;
                     right: 1em;
@@ -118,12 +125,390 @@ body {
     }
 
     .slider {
-        width: 40rem;
-        height: 20em;
+        max-width: 65.2rem;
+        width: 100%;
 
-        img{
+        .swiper-horizontal>.swiper-pagination-bullets,
+        .swiper-pagination-bullets.swiper-pagination-horizontal,
+        .swiper-pagination-custom,
+        .swiper-pagination-fraction {
+            top: 46%;
+            right: 0;
+            left: unset;
+            bottom: unset;
+            width: 2em;
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.5em;
+        }
 
-            border-radius: 30px;
+        .swiper-pagination-bullet {
+            background: #777676;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #fff !important;
+            height: 15px;
+            box-shadow: 0px 0px 5px #333033;
+            border-radius: 2em;
+        }
+
+        &-item {
+            position: relative;
+            width: 100%;
+            height: 21.5em;
+
+            &_play {
+                position: absolute;
+                right: 1rem;
+                bottom: 1rem;
+                background: rgba(40, 15, 44, 0.911);
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+                border-radius: 25px;
+                padding: 0.5em 0.8em;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                width: 8em;
+
+                h5 {
+                    margin: unset;
+                }
+
+                button {
+                    background: rgba(236, 236, 236, 0.92);
+                    /* play */
+                    box-shadow: -4px 4px 4px rgba(126, 125, 125, 0.25), 4px -4px 8px rgba(126, 125, 125, 0.25);
+                    width: 3em;
+                    height: 3em;
+                    border-radius: 50%;
+                    position: absolute;
+                    left: 0;
+                    outline: unset;
+                    border: unset;
+
+                    img {
+                        width: 1em;
+                    }
+                }
+            }
+
+            img {
+                height: 100% !important;
+                border-radius: 30px;
+                transition: all 0.5s;
+
+                &:hover {
+                    transform: scale(1.11);
+                    transition: all 0.3s;
+                }
+            }
+        }
+
+
+    }
+
+    .col-xl-3 {
+        padding: 0.3em;
+    }
+
+    .mood {
+        &_item {
+            width: 100%;
+            cursor: pointer;
+            border-radius: 25px;
+            height: 6em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+            font-size: 1.3em;
+            background-repeat: round !important;
+            background-position: center;
+
+            // &:hover {
+            //     background: rgba(0, 0, 0, 0.315);
+            //     transition: linear 0.5s;
+            // }
+        }
+
+        &_work {
+            background: #3353FC;
+        }
+
+        &_relax {
+            background: #7673FE;
+        }
+
+        &_happy {
+            background: #FFA133;
+        }
+
+        &_sad {
+            background: #FF7449;
+        }
+
+        &_pop {
+            background: url(../icon/pop.svg);
+        }
+
+        &_rock {
+            background: url(../icon/rock.svg);
+        }
+
+        &_hip {
+            background: url(../icon/hiphop.svg);
+        }
+
+        &_classical {
+            background: url(../icon/classic.svg);
         }
     }
+
+    .song_tab {
+        max-width: 65.2rem;
+        width: 100%;
+        background: rgba(40, 15, 44, 0.47);
+        border-radius: 25px;
+        position: relative;
+        padding: 0.5em 0.8em;
+
+        .nav-tabs {
+            border-bottom: unset;
+            column-gap: 1em;
+        }
+
+        .nav-tabs .nav-link.active {
+            background: #280F2C;
+            border-radius: 1rem;
+            border-color: transparent;
+            color: #fff;
+        }
+
+        .nav-tabs .nav-link {
+            border-radius: 1rem;
+            border-color: transparent;
+            background: #221a2369;
+            color: #fff;
+        }
+
+        .song_item {
+            cursor: pointer;
+            height: 30vh;
+
+            img {
+                width: 100%;
+                border-radius: 2rem;
+            }
+
+            &:hover {
+                transition: ease-in-out 0.5S;
+
+                .item_overlay {
+                    opacity: 1;
+                }
+
+                .item_details {
+                    top: 64%;
+                    opacity: 1;
+                }
+            }
+
+            &_singer {
+                color: rgba(255, 255, 255, 0.5);
+                margin-left: 1em;
+            }
+
+            &_title {
+
+                img {
+                    width: 0.7em;
+                    margin: 0 0.3em;
+                }
+
+            }
+
+            .item_details {
+                background: linear-gradient(270deg, #280F2C 0%, #000000 100%);
+                border-radius: 25px;
+                position: absolute;
+                height: 34%;
+                width: 85%;
+                margin: 0 auto;
+                left: 0;
+                // top: 0;
+                bottom: 0;
+                right: 0;
+                opacity: 0;
+                -webkit-transition: all 0.4s ease-in-out 0s;
+                -moz-transition: all 0.4s ease-in-out 0s;
+                transition: all 0.4s ease-in-out 0s;
+                padding: 0.8em;
+                font-size: 0.8rem;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                &_p {
+                    width: 69%;
+                }
+
+                p {
+                    margin-bottom: unset;
+                }
+
+                button {
+                    border-radius: 50%;
+                    outline: unset;
+                    border: unset;
+                    width: 2.8em;
+                    height: 2.8em;
+                    background: #FFFFFF;
+                    box-shadow: -4px 4px 4px rgb(126 125 125 / 25%), 4px -4px 8px rgb(126 125 125 / 25%);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img {
+                        border-radius: unset;
+                        width: 1em;
+                    }
+                }
+            }
+
+            .fadeIn-bottom {
+                top: 80%;
+            }
+        }
+    }
+
+    .play_music {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        width: calc(100% - 5rem);
+        height: 4rem;
+        z-index: 9999999;
+        display: flex;
+        column-gap: 3rem;
+        background: rgba(40, 15, 44, 0.57);
+        box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(5.5px);
+        border-radius: 1.5rem;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem;
+
+        &_img {
+            width: 3.5em;
+            border-radius: 0.5em;
+        }
+
+        p {
+            margin-bottom: unset;
+            font-size: 0.9em;
+        }
+
+        &_singer {
+            color: #8D8989;
+        }
+
+        .dropdown-menu {
+            background: #000000db;
+        }
+
+        .dropdown-item {
+            color: #fff;
+
+            &:focus,
+            &:hover {
+                background: #1f0c22ab;
+                color: #fff;
+            }
+        }
+
+        &_upload {
+            all: unset;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            color: #dad5d5;
+        
+            &::after {
+                all: unset;
+            }
+
+            img {
+                width: 2.5em;
+            }
+        }
+
+        .music_player {
+            background: unset;
+            box-shadow: unset;
+            width: 60%;
+
+            .rhap_progress-filled,
+            .rhap_progress-indicator {
+                background: #fff;
+            }
+
+            .rhap_download-progress {
+                background: #767272;
+            }
+
+            .rhap_time {
+                font-size: 0.8em;
+                color: #fff !important;
+            }
+
+            .rhap_controls-section {
+                flex: unset;
+            }
+
+            .rhap_forward-button, .rhap_rewind-button{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img{
+                    width: 2rem;
+                }
+            }
+
+            .rhap_play-pause-button {
+                border-radius: 50%;
+                background: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: -4px 4px 4px rgba(126, 125, 125, 0.25), 4px -4px 8px rgba(126, 125, 125, 0.25);
+
+                img {
+                    width: 0.9rem;
+                }
+            }
+        }
+    }
+}
+
+
+*::-webkit-scrollbar {
+    width: 12px;
+    /* width of the entire scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0);
+    /* color of the tracking area */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #280F2C;
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 3px solid rgb(0, 0, 0);
+    /* creates padding around scroll thumb */
 }
