@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import Header from '../../components/Header/Header';
-import SearchInput from '../../components/Search/SearchInput';
 import SearchIcon from '../../assets/icon/search.svg';
 import { getSearchArtistOrSong } from '../../api/MelobitApi';
 import SongItem from '../../components/SongSlider/SongItem';
 import { setPlayMusic, useMusicDispatch } from '../../context/MusicContext';
 import { Col, Row } from 'react-bootstrap';
+import HedphoneIcon from '../../assets/icon/hedphone.svg';
 
 export default function Search() {
   const [query, setQuery] = useState('');
@@ -25,7 +25,7 @@ export default function Search() {
   };
 
   const list = data.length !== 0 ? data.map((item, index) => (
-    item.song !== undefined ? 
+    item.song !== undefined ?
       <Col xxl={3} xl={3} lg={4} md={6} sm={12} key={index}>
         <SongItem
           id={item.song.id}
@@ -33,7 +33,7 @@ export default function Search() {
           title={item.song.title}
           singer={item.song.artists[0].fullName}
           handlePlayMusic={() => setPlayMusic(playMusicDispatch, item.song.id)} /></Col>
-    : ''    
+      : ''
   )) : null;
   return (
     <>
@@ -47,6 +47,9 @@ export default function Search() {
         <img src={SearchIcon} alt="" onClick={() => handleChangeParams(query)} />
       </div>
 
+      {
+        !load && <img className='img_no_search' src={HedphoneIcon} alt="" />
+      }
       <Row className='search_list'>
         {
           load && list

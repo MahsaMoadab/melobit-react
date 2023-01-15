@@ -676,6 +676,15 @@ body {
             cursor: pointer;
         }
     }
+    .img_no_search{
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4rem auto;
+    width: 20em;
+    position: absolute;
+    left: 41%;
+    }
     .search_list{
         height: calc(100vh - 10rem);
         overflow-y: auto;
