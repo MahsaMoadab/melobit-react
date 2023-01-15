@@ -1,39 +1,53 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header/Header'
 import Slider from '../../components/Slider/Slider'
 import HomeIcon from '../../assets/icon/home.svg';
 import SongSlider from '../../components/SongSlider/SongSlider';
 import { Col, Row } from 'react-bootstrap';
 import Mood from '../../components/Card/Mood/Mood';
-import TopGeners from '../../components/Card/TopGeners/TopGeners';
+import { getLatestSliders, getLatestSong, getTopDaySong, getTopWeekSong, getTrendingArtist } from '../../api/MelobitApi';
+import TopArtists from '../../components/Card/TopArtists/TopArtists';
+import { useMusicDispatch, setPlayMusic } from '../../context/MusicContext';
 
 export default function Home() {
+  const [latestSong, setLatestSong] = useState([]);
+  const [daySong, setDaySong] = useState([]);
+  const [weekSong, setWeekSong] = useState([]);
+  const [artists, setArtists] = useState([]);
+
+  const [slider, setSlider] = useState(null);
+  const playMusicDispatch = useMusicDispatch();
+
+  useEffect(() => {
+    getLatestSliders()
+      .then(({ data }) => setSlider(data.results));
+    getLatestSong(0, 7)
+      .then(({ data }) => setLatestSong(data.results));
+    getTopDaySong(0, 14)
+      .then(({ data }) => setDaySong(data.results));
+    getTopWeekSong(0, 30)
+      .then(({ data }) => setWeekSong(data.results));
+    getTrendingArtist(0, 10)
+      .then(({ data }) => setArtists(data.results))
+  }, []);
+
   return (
     <>
       <Header logo={HomeIcon} title={"Home"} />
-      <Row xxl={12} className={'align-items-end mt-2'}>
+      <Row xxl={12}>
         <Col xl={7}>
-          <Slider />
+          <Slider slider={slider} handlePlayMusic={(e) => setPlayMusic(playMusicDispatch, e.target.id)} />
+          <SongSlider
+            daySong={daySong}
+            latestSong={latestSong}
+            weekSong={weekSong}
+            handlePlayMusic={(e) => setPlayMusic(playMusicDispatch, e.target.id)} />
         </Col>
         <Col xl={5}>
           <Mood />
-          <TopGeners />
+          <TopArtists artists={artists} />
         </Col>
       </Row>
-      <Row>
-        <Col xl={7} className={'mt-3'}>
-          <SongSlider />
-        </Col>
-        <Col xl={5}>
-          {/* <Mood />
-          <TopGeners /> */}
-
-        </Col>
-      </Row>
-      {/* <audio controls >
-          <source src="https://dl.melobit.com/mp3s/Aron-Afshar-Khandehato-Ghorboon-128.mp3" />
-        </audio> */}
-
     </>
   )
 }

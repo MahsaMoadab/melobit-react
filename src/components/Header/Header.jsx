@@ -1,5 +1,4 @@
 import React from 'react'
-import Search from '../Search/Search'
 
 export default function Header({ logo, title }) {
     return (
@@ -10,7 +9,6 @@ export default function Header({ logo, title }) {
                     {title}
                 </h4>
             </div>
-            <Search />
         </div>
     )
 }
