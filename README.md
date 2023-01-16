@@ -11,7 +11,7 @@ https://melobit-react.netlify.app/
 ## detail page
 ![details](https://user-images.githubusercontent.com/65342549/212749000-2233258a-000d-4522-8505-adc8b9c60256.png)
 
-## install app
+## Install app
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -20,7 +20,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm install`, `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
