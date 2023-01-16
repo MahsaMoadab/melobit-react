@@ -3,10 +3,13 @@ import Header from '../../components/Header/Header'
 import MusicIcon from '../../assets/icon/music.svg';
 import { useParams } from 'react-router-dom';
 import { getSongDetails } from '../../api/MelobitApi';
-import { Col, Dropdown, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { setPlayMusic, useMusicDispatch } from '../../context/MusicContext';
-import UploadIcon from '../../assets/icon/upload.svg';
 import PlayIcon from '../../assets/icon/play.svg';
+import headphoneIcon from '../../assets/icon/headphone.svg';
+import microphoneIcon from '../../assets/icon/microphone.svg';
+import dataIcon from '../../assets/icon/date.svg';
+import moment from 'jalali-moment';
 
 export default function Details() {
     let { songId } = useParams();
@@ -33,37 +36,31 @@ export default function Details() {
                                 </div>
                             </Col>
                             <Col xxl={4} className={'mt-5'}>
-
-                                <h4>
-                                    {data.title}
-                                </h4>
-
-                                <h5>
+                                <p className='feature_p w-100 feature_p_one'>
+                                    <img src={microphoneIcon} alt="" />
                                     {data.artists[0].fullName}
-                                </h5>
-
-                                <p>
-                                    <Dropdown>
-                                        <Dropdown.Toggle className='play_music_upload' id={`dropdown-button-drop-up`}>
-                                            <img src={UploadIcon} alt="" />
-                                            {data.downloadCount}
-                                        </Dropdown.Toggle>
-
-                                        <Dropdown.Menu>
-                                            <Dropdown.Item eventKey="1" href={data.audio.medium.url}>
-                                                128
-                                            </Dropdown.Item>
-                                            <Dropdown.Item eventKey="2" href={data.audio.high.url}>
-                                                320
-                                            </Dropdown.Item>
-                                        </Dropdown.Menu>
-                                    </Dropdown>
                                 </p>
-                                <div className='play_now'>
-                                    <h5>Play</h5>
-                                    <button onClick={()=> setPlayMusic(playMusicDispatch, songId)}>
-                                        <img src={PlayIcon} alt="" />
-                                    </button>
+                                <div className='feature'>
+
+                                    <p className='feature_p'>
+                                        <img src={dataIcon} alt="" />
+                                        {moment(data.releaseDate, 'YYYY-M-D')
+                                            .locale('fa')
+                                            .format('YYYY/M/D')}
+                                    </p>
+                                    <p className='feature_p'>
+                                        <img src={headphoneIcon} alt="" />
+                                        {data.downloadCount}
+                                    </p>
+                                </div>
+                                <div className="d-flex justify-content-between align-items-center">
+
+                                    <div className='play_now'>
+                                        <h5>Play</h5>
+                                        <button onClick={() => setPlayMusic(playMusicDispatch, songId)}>
+                                            <img src={PlayIcon} alt="" />
+                                        </button>
+                                    </div>
                                 </div>
 
                             </Col>

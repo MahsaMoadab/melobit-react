@@ -2,7 +2,6 @@ import React from 'react';
 import Logo from '../../assets/icon/logo.svg';
 import HomeIcon from '../../assets/icon/home.svg';
 import SearchIcon from '../../assets/icon/search.svg';
-import HistoryIcon from '../../assets/icon/history.svg';
 import { NavLink } from 'react-router-dom';
 
 export default function Sidebar() {
@@ -30,9 +29,6 @@ export default function Sidebar() {
                         <img src={SearchIcon} alt="" />
                     </NavLink>
                 </div>
-                {/* <div className="sidebar_menu_item">
-                    <img src={HistoryIcon} alt="" />
-                </div> */}
             </div>
         </div>
     )

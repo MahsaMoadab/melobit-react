@@ -589,11 +589,7 @@ body {
             padding: 0 0.5em;
             font-size: 1.1em;
         }
-
-        .play_now {
-            position: relative;
-            right: 1rem;
-            bottom: 1rem;
+        .play_music_upload{
             background: rgba(40, 15, 44, 0.911);
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
             border-radius: 25px;
@@ -601,8 +597,19 @@ body {
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            width: 7.2em;
-            margin: 3rem 0.5em;
+        }
+
+        .play_now {
+            position: relative;
+            background: rgba(40, 15, 44, 0.911);
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 25px;
+            padding: 0.5em 0.9em;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 7.5em;
+            margin: 1rem 0;
 
             h5 {
                 margin: unset;
@@ -616,7 +623,7 @@ body {
                 height: 3em;
                 border-radius: 50%;
                 position: absolute;
-                left: 0;
+                left: 5px;
                 outline: unset;
                 border: unset;
 
@@ -676,18 +683,21 @@ body {
             cursor: pointer;
         }
     }
-    .img_no_search{
+
+    .img_no_search {
         display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 4rem auto;
-    width: 20em;
-    position: absolute;
-    left: 41%;
+        align-items: center;
+        justify-content: center;
+        margin: 4rem auto;
+        width: 20em;
+        position: absolute;
+        left: 41%;
     }
-    .search_list{
+
+    .search_list {
         height: calc(100vh - 10rem);
         overflow-y: auto;
+
         .song_item {
             cursor: pointer;
             position: relative;
@@ -782,5 +792,32 @@ body {
                 top: 80%;
             }
         }
+    }
+    .feature{
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+    }
+
+
+    .feature_p {
+        padding: 0.5em 1rem;
+        width: 50%;
+        background: #000000;
+        box-shadow: 0px 4px 20px rgba(83, 83, 83, 0.25);
+        border-radius: 1.2em;
+        line-height: 1.5em;
+        display: flex;
+        align-items: center;
+        column-gap: 0.5rem;
+        justify-content: center;
+
+        img {
+            width: 1.5em;
+        }
+    }
+
+    .feature_p_one{
+        background: #00000041;
     }
 }

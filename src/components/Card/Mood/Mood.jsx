@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap'
+import {  Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap'
 
 export default function Mood() {
     const tooltip = (

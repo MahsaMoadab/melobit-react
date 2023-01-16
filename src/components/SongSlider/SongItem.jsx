@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import PlayIcon from '../../assets/icon/play.svg';
 import MusicIcon from '../../assets/icon/music.svg';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ export default function SongItem({ url, title, singer, handlePlayMusic, id }) {
 
         <div className="song_item">
             <div className='item_overlay'></div>
-            <Link to={`player/details/${id}`}>
+            <Link to={`/player/details/${id}`}>
                 <img src={url} alt="" />
             </Link>
 
